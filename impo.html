@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Important</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="shotcut icon" href="./src/assets/IMG/heart.svg">
+    <link rel="stylesheet" href="./src/css/layout.css">
+    <link rel="stylesheet" href="./src/css/impo.css">
+</head>
+
+<body>
+    <div class="container">
+    
+        <aside class="sidebar">
+            <div class="logo-img">
+                <a href="./index.html"><img width="100px" src="./src/assets/IMG/todo_logo.gif" alt=""></a>
+            </div>
+            <hr style="border: 1px solid gainsboro; width: 100%;">
+            <ul>
+                <a href="./index.html"><li><i class="fa-solid fa-hippo"></i> My Day</li></a>
+                <a href="./impo.html"><li class="Impo"><i class="fa-solid fa-meteor"></i> Important</li></a>
+                <li><i class=" fa-regular fa-calendar-days"></i> Planned</li>
+                <li><i class=" fa-regular fa-user"></i> Assigned to me</li>
+                <li><i class=" fa-regular fa-font-awesome"></i> Flagged Email</li>
+                <li><i class=" fa-solid fa-list-check"></i> Tasks</li>
+                <hr style="border: 1px solid gainsboro; width: 100%;">
+                <li><i class=" fa-solid fa-star-of-life"></i>  Getting Started</li>
+                <li><i class=" fa-solid fa-cart-flatbed"></i> Groceries</li>
+            </ul>
+        </aside>
+
+        <div class="main-section">
+            <header class="header">
+                <div class="header-title">
+                    <h1> <i class="fa-solid fa-meteor"></i> Important</h1>
+                    <p  id="dayTime"></p>
+                </div>
+               
+
+                <script>
+                    // Tạo một hàm để cập nhật thời gian trên trang web
+                    function updateDateTime() {
+                      var d = new Date(); // Thời gian hiện tại
+          
+                      var ngay = d.getDate();
+                      var thang = d.toLocaleString('default', { month: 'long' }); // Lấy tên tháng
+                      var thu = d.toLocaleString('default', { weekday: 'long' }); // Lấy tên thứ
+                      var nam = d.getFullYear();
+          
+                      var gio = d.getHours();
+                      var phut = d.getMinutes();
+                      var giay = d.getSeconds();
+          
+                      // Định dạng thời gian
+                      var sngay = thu + ', ' + thang + ' ' + ngay + " | " + gio + ":" + phut + ":" + giay;
+          
+                      // Chọn phần tử <p> với id là "dayTime" và cập nhật nội dung của nó
+                      var dayTimeElement = document.getElementById("dayTime");
+                      if (dayTimeElement) {
+                        dayTimeElement.textContent = sngay;
+                      }
+                    }
+          
+                    // Gọi hàm updateDateTime() mỗi giây để cập nhật thời gian liên tục
+                    setInterval(updateDateTime, 1000);
+           
+                    updateDateTime();
+                  </script>
+
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="account">
+                    <i class="fa-solid fa-bell"></i>
+                    <img src="./src/assets/IMG/account.jpg" alt="account">  
+                </div>
+              
+            </header>
+            <main class="main-content">
+                <div class="input-container">
+                    <input id="" type="text" placeholder="Type your task here...">
+                    <button id="add-task-btn" type="submit"> <i class="fas fa-paper-plane"></i></button>  
+                </div>
+            </main>
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+    <script src="./main.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+    <link rel="stylesheet" href="./css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
+  <link rel="shotcut icon" href="./src/assets/IMG/heart.svg">
+</head>
+<body>
+    <!-- container start here! -->
+    <div class="container">
+        <!-- sidebar start here -->
+        <aside class="sidebar">
+            <div class="logo-img">
+                <a href="#"><img width="100px" src="./src/assets/IMG/todo_logo.gif" alt=""></a>
+            </div>
+            <hr style="border: 1px solid gainsboro; width: 100%;">
+            <ul>
+                <a href="./index.html"><li class="myday"><i class="fa-solid fa-hippo"></i> My Day</li></a>
+                <a href="./impo.html"><li><i class="fa-solid fa-meteor"></i> Important</li></a>
+                <li><i class=" fa-regular fa-calendar-days"></i> Planned</li>
+                <li><i class=" fa-regular fa-user"></i> Assigned to me</li>
+                <li><i class=" fa-regular fa-font-awesome"></i> Flagged Email</li>
+                <li><i class=" fa-solid fa-list-check"></i> Tasks</li>
+                <hr style="border: 1px solid gainsboro; width: 100%;">
+                <li><i class=" fa-solid fa-star-of-life"></i>  Getting Started</li>
+                <li><i class=" fa-solid fa-cart-flatbed"></i> Groceries</li>
+            </ul>
+        </aside>
+        <!-- sidebar end here -->
+
+        <!-- main section start here -->
+        <div class="main-section">
+
+            <!-- header start here -->
+            <header class="header">
+                <div class="header-title">
+                    <h1> <i class="fa-solid fa-hippo"></i> my day</h1>
+                    <p  id="dayTime"></p>
+                </div>
+               
+
+                <script>
+                    // Tạo một hàm để cập nhật thời gian trên trang web
+                    function updateDateTime() {
+                      var d = new Date(); // Thời gian hiện tại
+          
+                      var ngay = d.getDate();
+                      var thang = d.toLocaleString('default', { month: 'long' }); // Lấy tên tháng
+                      var thu = d.toLocaleString('default', { weekday: 'long' }); // Lấy tên thứ
+                      var nam = d.getFullYear();
+          
+                      var gio = d.getHours();
+                      var phut = d.getMinutes();
+                      var giay = d.getSeconds();
+          
+                      // Định dạng thời gian
+                      var sngay = thu + ', ' + thang + ' ' + ngay + " | " + gio + ":" + phut + ":" + giay;
+          
+                      // Chọn phần tử <p> với id là "dayTime" và cập nhật nội dung của nó
+                      var dayTimeElement = document.getElementById("dayTime");
+                      if (dayTimeElement) {
+                        dayTimeElement.textContent = sngay;
+                      }
+                    }
+          
+                    // Gọi hàm updateDateTime() mỗi giây để cập nhật thời gian liên tục
+                    setInterval(updateDateTime, 1000);
+           
+                    updateDateTime();
+                  </script>
+
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="account">
+                    <i class="fa-solid fa-bell"></i>
+                    <img id="account-acction" src="./src/assets/IMG/account.jpg" alt="">  
+                </div>   
+
+            </header>
+            <!-- header end here -->
+
+            <!-- account card hover start here! -->
+            
+            <div id="card-acction" class="account-card hide">
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-street-view"></i> View Profile</a></li>
+                    <li><a href="#"><i class="fa-solid fa-gear"></i> Setting</a></li>
+                    <li><a href="#"><i class="fa-solid fa-circle-info"></i> Help</a></li>
+                    <hr>
+                    <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
+                </ul>
+            </div>
+
+            <script>
+               document.addEventListener("DOMContentLoaded", function(){
+                var img = document.getElementById("account-acction");
+                var card = document.getElementById("card-acction");
+
+                // su kien click start here
+                img.addEventListener('click', function(){
+                    if(card.classList.contains("show")){
+                        card.classList.remove("show");
+                    }
+                    else{
+                        card.classList.add("show");
+                    }
+                     
+                })
+               })
+            </script>
+
+            <!-- main content start here -->
+            <main class="main-content">
+                <ul class="task-list" id="task-list"></ul>
+                <div class="input-container">
+                    <input id="input-task" type="text" placeholder="Type your task here...">
+                    <button id="add-task-btn" type="submit"> <i class="fas fa-paper-plane"></i></button>  
+                </div>
+                
+            </main>
+            
+            <!-- main content end here -->
+        </div>
+    </div>
+    </div>
+    <script src="./main.js"></script>
+
+    
+
+ 
+
+     
+</body>
+</html>
